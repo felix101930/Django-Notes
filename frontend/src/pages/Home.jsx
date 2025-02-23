@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import api from "../api";
+import Note from "../components/Note";
+import "../styles/Home.css";
+import "../styles/Note.css";
 
 function Home() {
   const [notes, setNotes] = useState([]);
@@ -47,6 +50,10 @@ function Home() {
     <div>
       <div>
         <h2>Notes</h2>
+        {/* Render note Components */}
+        {notes.map((note) => (
+          <Note note={note} key={note.id} onDelete={deleteNote} />
+        ))}
       </div>
       <h2>Create a new note</h2>
 

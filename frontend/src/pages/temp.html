@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AI Chatbot Interface</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --bg-gradient-start: #6a11cb;
+                --bg-gradient-end: #2575fc;
+                --chat-bg: white;
+                --shadow-color: rgba(0, 0, 0, 0.15);
+            }
+            body, html {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                font-family: 'Inter', sans-serif;
+                background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+            }
+            .iframe-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100vh;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            .chatbot-iframe {
+                width: 90%;
+                max-width: 450px;
+                height: 80vh;
+                max-height: 700px;
+                border: none;
+                border-radius: 20px;
+                box-shadow: 0 15px 35px var(--shadow-color), 0 5px 15px var(--shadow-color);
+                overflow: hidden;
+                transition: transform 0.3s ease;
+            }
+            .chatbot-iframe:hover {
+                transform: scale(1.02);
+            }
+            @media (max-width: 600px) {
+                .chatbot-iframe {
+                    width: 95%;
+                    max-width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="iframe-container">
+            <iframe 
+                class="chatbot-iframe"
+                src="https://copilotstudio.microsoft.com/environments/e9b1b03a-6888-ec51-98df-d175ed6c61f3/bots/cr037_agent/webchat?__version__=2" 
+                allowfullscreen
+            ></iframe>
+        </div>
+    </body>
+</html>
