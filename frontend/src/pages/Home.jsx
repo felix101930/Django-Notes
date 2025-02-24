@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import api from "../api";
 import Note from "../components/Note";
 import "../styles/Home.css";
-import "../styles/Note.css";
 
 function Home() {
   const [notes, setNotes] = useState([]);
@@ -28,11 +27,11 @@ function Home() {
     api
       .delete(`/api/notes/delete/${id}/`)
       .then((res) => {
-        if (res.status === 204) alert("Note deleted");
-        else alert("Failed to delete note");
+        if (res.status === 204) alert("Note deleted!");
+        else alert("Failed to delete note.");
+        getNotes();
       })
-      .catch((err) => alert(err));
-    getNotes();
+      .catch((error) => alert(error));
   };
 
   const createNote = (e) => {
@@ -40,25 +39,24 @@ function Home() {
     api
       .post("/api/notes/", { content, title })
       .then((res) => {
-        if (res.status === 201) alert("Note created");
-        else alert("Failed to create note");
+        if (res.status === 201) alert("Note created!");
+        else alert("Failed to make note.");
+        getNotes();
       })
       .catch((err) => alert(err));
-    getNotes();
   };
+
   return (
     <div>
       <div>
         <h2>Notes</h2>
-        {/* Render note Components */}
         {notes.map((note) => (
-          <Note note={note} key={note.id} onDelete={deleteNote} />
+          <Note note={note} onDelete={deleteNote} key={note.id} />
         ))}
       </div>
-      <h2>Create a new note</h2>
-
+      <h2>Create a Note</h2>
       <form onSubmit={createNote}>
-        <label htmlfor="title">Title:</label>
+        <label htmlFor="title">Title:</label>
         <br />
         <input
           type="text"
@@ -68,7 +66,7 @@ function Home() {
           onChange={(e) => setTitle(e.target.value)}
           value={title}
         />
-        <label htmlfor="title">Content:</label>
+        <label htmlFor="content">Content:</label>
         <br />
         <textarea
           id="content"
