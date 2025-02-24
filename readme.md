@@ -1,72 +1,82 @@
-# Project README
+# Django-Notes
+
+A note-taking application built with Django and React utilizing PosgreSQL
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Backend Setup](#backend-setup)
+- [Frontend Setup](#frontend-setup)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+## Overview
+
+This project is a note-taking application featuring a Django backend and a React frontend. It allows users to create, view, and delete notes using a simple, intuitive interface.
 
 ## Backend Setup
 
+Follow these steps to set up the Django backend:
+
 ### 1. Create a Virtual Environment and Activate It
 
-\`\`\`bash
+```bash
 python -m venv venv
-source venv/bin/activate # On Windows use \`venv\Scripts\activate\`
-\`\`\`
-
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
+```
 ### 2. Install the Required Packages
 
-\`\`\`bash
+```bash
 pip install -r requirements.txt
-\`\`\`
+```
 
 ### 3. Apply Migrations
 
-\`\`\`bash
+```bash
 python manage.py migrate
-\`\`\`
+```
 
 ### 4. Run the Server
 
-\`\`\`bash
+```bash
 python manage.py runserver
-\`\`\`
+```
 
 ## Frontend Setup
 
+Follow these steps to set up the React frontend:
 ### 1. Navigate to the Frontend Directory
 
-\`\`\`bash
+```
 cd Django_Notes/frontend
-\`\`\`
+```
 
 ### 2. Install the Dependencies
-
-\`\`\`bash
+```
 npm install
-\`\`\`
+```
 
 ### 3. Start the React Application
-
-\`\`\`bash
+```
 npm start
-\`\`\`
-
+```
 ## Usage
 
-Navigate to [http://localhost:3000](http://localhost:3000) in your browser to access the application.  
-You can create a new note, view existing notes, and delete notes.
+Once both the backend server and the frontend application are running, open your browser and navigate to http://localhost:3000 to access the application. From there, you can:
+
+    Create a new note
+    View existing notes
+    Delete notes
+
 
 ## API Endpoints
 
-- **GET** \`/api/notes/\`  
-  Retrieve all notes.
+The following API endpoints are available:
 
-- **POST** \`/api/notes/\`  
-  Create a new note.
+    GET /api/notes/
+    Retrieve all notes.
 
-- **DELETE** \`/api/notes/delete/<id>/\`  
-  Delete a note by ID.
+    POST /api/notes/
+    Create a new note.
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a pull request or create an issue for any bugs or feature requests.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+    DELETE /api/notes/delete/<id>/
+    Delete a note by its ID.
